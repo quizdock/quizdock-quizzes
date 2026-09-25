@@ -1,0 +1,23 @@
+# Publishes the quizzes of this repository for the QuizDock community store.
+# Nothing to change here: upload .quizdock.zip files into quizzes/, this does the rest.
+name: Publish quizzes
+
+on:
+  push:
+    branches: [main]
+    paths: ['quizzes/**', '.github/workflows/publish.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quizdock/quiz-store/publish-action@main
