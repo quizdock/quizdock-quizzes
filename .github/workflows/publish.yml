@@ -20,4 +20,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: quizdock/quiz-store/publish-action@main
+      - uses: quizdock/quiz-store/publish-action@v1
